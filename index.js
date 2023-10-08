@@ -9,14 +9,14 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 
-// Para poder leer el bodty de la solicitud HTTP POST
+// Para poder leer el body de la solicitud HTTP POST
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
 }))
 
 
-// Crando el token para obtener el body en caso de solicitud http
+// Crando el token para obtener el body en caso de solicitud http POST
 morgan.token('body', (req, res) => {
 if(req.method === 'POST'){
     return JSON.stringify(req.body);
